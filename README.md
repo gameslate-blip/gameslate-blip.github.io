@@ -1,8 +1,9 @@
-# GameSlate website
+# gameslate-blip.github.io (domain root)
 
-Public website for the GameSlate Android app by Digital Slate Database.
+This repo serves the root of https://gameslate-blip.github.io/. It only does two things:
 
-- `index.html`: landing page, privacy policy (`#privacy`) and terms of use (`#terms`)
-- `app-ads.txt`: AdMob authorized sellers file; must be served from the root of the developer website domain
+- `index.html`: sends visitors to the main website at https://gameslate-blip.github.io/digitalslate/ (repo gameslate-blip/digitalslate).
+  The old GameSlate links `/#privacy` and `/#terms` are sent to the new GameSlate privacy and terms pages.
+- `app-ads.txt`: AdMob authorized sellers file; it must stay at the domain root.
 
-Privacy policy URL for Google Play: `https://<your-domain>/#privacy`
+The website itself lives in gameslate-blip/digitalslate. Do not put site content here.
