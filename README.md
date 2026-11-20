@@ -1,9 +1,13 @@
-# gameslate-blip.github.io (domain root)
+# gameslate-blip.github.io (the main website, domain root)
 
-This repo serves the root of https://gameslate-blip.github.io/. It only does two things:
+This repo serves https://gameslate-blip.github.io/ : the Digital Slate Database home page with the app chooser, the app pages and the legal pages, in English and Portuguese (`/pt/`).
 
-- `index.html`: sends visitors to the main website at https://gameslate-blip.github.io/digitalslate/ (repo gameslate-blip/digitalslate).
-  The old GameSlate links `/#privacy` and `/#terms` are sent to the new GameSlate privacy and terms pages.
-- `app-ads.txt`: AdMob authorized sellers file; it must stay at the domain root.
+**Do not edit the HTML here.** It is generated from the repo gameslate-blip/digitalslate (`tools/build_site.py`, `content/`, `assets/`):
 
-The website itself lives in gameslate-blip/digitalslate. Do not put site content here.
+    cd ~/Projects/digitalslate
+    python3 tools/build_site.py --root-site --out ../gameslate-blip.github.io   # this repo
+    python3 tools/build_site.py                                                  # the /digitalslate/ copy
+
+Then commit and push both repos. The copy at https://gameslate-blip.github.io/digitalslate/ must stay: Google Play listings and the apps link to its privacy pages.
+
+`app-ads.txt` is the AdMob authorized sellers file and must stay at the domain root (it is not generated).
