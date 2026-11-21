@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JamSlate: FluidSynth source and licences | Digital Slate Database</title>
+<meta name="robots" content="index,follow">
+<style>
+ body{margin:0;background:#10151D;color:#fff;font:16px/1.6 system-ui,-apple-system,Roboto,Segoe UI,sans-serif}
+ main{max-width:760px;margin:0 auto;padding:32px 20px 64px}
+ h1{font-size:28px;margin:0 0 4px} h1 em{color:#66c0f4;font-style:normal} h2{margin-top:32px;font-size:20px}
+ a{color:#66c0f4} code,pre{background:#1B2430;border-radius:8px;padding:2px 6px} pre{padding:12px;overflow:auto}
+ .muted{color:#9AA8B7} ul{padding-left:20px} li{margin:6px 0}
+</style></head>
+<body><main>
+<h1>Jam<em>Slate</em> and Song<em>Slate</em>: FluidSynth source and licences</h1>
+<p class="muted">Digital Slate Database &middot; <a href="../../jamslate/">JamSlate</a> &middot; <a href="../../">All apps</a></p>
+
+<p>JamSlate and SongSlate play their band with <strong>FluidSynth 2.6.2</strong>, a free software synthesizer under the
+<strong>GNU Lesser General Public License, version 2.1</strong> (LGPL-2.1). The copy inside the app has <strong>small changes</strong>.
+This page gives the complete source of the library as shipped in the app, the changes as a patch against the original, and how to replace it.</p>
+
+<h2>Downloads</h2>
+<ul>
+ <li><a href="fluidsynth-2.6.2-jamslate-source.tar.gz">fluidsynth-2.6.2-jamslate-source.tar.gz</a>: the complete modified source, as built into the app (about 0.7 MB).</li>
+ <li><a href="fluidsynth-2.6.2-jamslate.patch">fluidsynth-2.6.2-jamslate.patch</a>: only the changes, a unified diff against the original FluidSynth v2.6.2 (tag <code>v2.6.2</code>, commit <code>c3b244ddfd094489a5490beee013c621a504adf2</code>).</li>
+ <li><a href="app-build-files/CMakeLists.txt">app-build-files/CMakeLists.txt</a> and <a href="app-build-files/slate_synth.cpp">slate_synth.cpp</a>: the build file and the small JNI wrapper that load FluidSynth in the app.</li>
+ <li><a href="LICENSE-FluidSynth-LGPL-2.1.txt">LGPL-2.1 licence text</a>.</li>
+ <li>Original FluidSynth: <a href="https://github.com/FluidSynth/fluidsynth/tree/v2.6.2">github.com/FluidSynth/fluidsynth</a> (tag v2.6.2).</li>
+</ul>
+
+<h2>What was changed</h2>
+<ul>
+ <li><code>src/sfloader/fluid_sffile.c</code>: when built with <code>JAMSLATE_STB_VORBIS</code>, the compressed samples of SF3 sound fonts are decoded with the built-in <em>stb_vorbis</em> decoder instead of libsndfile (which is not available on Android). The conversion to 16 bit follows the original libsndfile code path.</li>
+ <li><code>src/sfloader/stb_vorbis.c</code>: added. stb_vorbis v1.25 by Sean Barrett, public domain (also available under the MIT licence, see the end of the file).</li>
+ <li><code>doc/CMakeLists.txt</code> and <code>test/CMakeLists.txt</code>: replaced by empty stubs, because the documentation and test programs are not built for Android.</li>
+ <li>The <code>gcem</code> folder holds the upstream gcem library (Apache-2.0), unchanged. Everything else is the original FluidSynth.</li>
+</ul>
+
+<h2>How the library is used, and how to replace it</h2>
+<p>FluidSynth is built as its <strong>own shared library</strong>, <code>libfluidsynth.so</code>, separate from the app's code, and the app loads it at run time
+(<code>System.loadLibrary("fluidsynth")</code>, in the shared <code>synth</code> module of both apps). You can therefore build a modified version and use it with the app:</p>
+<ol>
+ <li>Unpack the source, and build it for Android with the NDK using <code>app-build-files/CMakeLists.txt</code> as the starting point (it turns off every audio driver and sets <code>JAMSLATE_STB_VORBIS</code>; the output name must be <code>libfluidsynth.so</code>).</li>
+ <li>Take the app's APK, replace <code>lib/&lt;abi&gt;/libfluidsynth.so</code> with your build, and sign the APK with your own key. The app's own code does not need to change: it only calls the public FluidSynth C interface.</li>
+</ol>
+<p>If you need help with this, write to <a href="mailto:gameslate@proton.me">gameslate@proton.me</a>.</p>
+
+<h2>Sound library</h2>
+<p>The instruments come from the <strong>MuseScore_General</strong> sound font, released under the MIT licence. <a href="LICENSE-MuseScore_General-MIT.md">Licence and copyright notice</a>.</p>
+
+<p class="muted">JamSlate itself (its own code, texts and graphics) is &copy; 2026 Digital Slate Database, all rights reserved. FluidSynth is &copy; its authors; see the licence text.</p>
+</main></body></html>
