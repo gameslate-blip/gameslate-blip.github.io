@@ -31,7 +31,7 @@
       <p>O JamSlate não executa análises próprias.</p>
       <p>O JamSlate oferece uma compra única opcional, "Remover anúncios". O Google Play cuida do pagamento: o desenvolvedor nunca recebe seus dados de pagamento, e o app só fica sabendo se a compra existe na sua conta Google. Se você a tiver, os anúncios são desligados e o SDK de anúncios não é iniciado.</p>
       <h3>3. Informações enviadas quando você busca uma música</h3>
-      <p>A busca de músicas é opcional: nada é enviado se você não a usar. Quando você busca, o app envia o texto digitado, por HTTPS, ao <strong>Deezer</strong> (api.deezer.com). Para ler o andamento e o gênero de uma música, ele pede ao Deezer a faixa, o álbum e, quando uma faixa não informa andamento, outras versões do mesmo artista. Para tentar descobrir o tom, ele envia o código ISRC da faixa ao <strong>MusicBrainz</strong> (musicbrainz.org) e os identificadores de gravação recebidos ao <strong>AcousticBrainz</strong> (acousticbrainz.org). Essas solicitações não levam conta, nome nem ID de publicidade do JamSlate, mas, como qualquer site, cada serviço pode ver o seu endereço IP e o trata conforme a própria política de privacidade. O JamSlate não envia suas escolhas ao desenvolvedor, e a banda funciona totalmente offline.</p>
+      <p>A busca de músicas é opcional: nada é enviado se você não a usar. Quando você busca, o app envia o texto digitado, por HTTPS, ao <strong>MusicBrainz</strong> (musicbrainz.org) para encontrar gravações correspondentes, e os identificadores dessas gravações ao <strong>AcousticBrainz</strong> (acousticbrainz.org) para ler o andamento e o tom medidos a partir do áudio delas. Essas solicitações não levam conta, nome nem ID de publicidade do JamSlate, mas, como qualquer site, cada serviço pode ver o seu endereço IP e o trata conforme a própria política de privacidade. O JamSlate não envia suas escolhas ao desenvolvedor, e a banda funciona totalmente offline.</p>
       <h3>4. Informações no seu aparelho</h3>
       <p>A banda é gerada no seu celular. Suas escolhas (estilo, tom, andamento, volume dos instrumentos) são usadas apenas enquanto o app está aberto. A biblioteca de sons é copiada para o armazenamento privado do app na primeira vez que ele inicia, então tocar não precisa de internet. O JamSlate não usa seu microfone, sua localização nem seus contatos. No Android 13 ou posterior, ele pede permissão de notificações apenas para a música continuar tocando, com um botão Parar, com a tela apagada; se você recusar, a reprodução continua funcionando, mas o Android pode não mostrar essa notificação.</p>
       <h3>5. Crianças</h3>
@@ -45,7 +45,7 @@
 </main>
 <footer><div class="wrap foot">
 <div><strong class="brand">Digital<span>Slate</span> Database</strong><br>Apps pequenos e úteis para Android.</div>
-<div><a href="../../../pt/gameslate/">GameSlate</a> &nbsp;·&nbsp; <a href="../../../pt/bookslate/">BookSlate</a> &nbsp;·&nbsp; <a href="../../../pt/stringslate/">StringSlate</a> &nbsp;·&nbsp; <a href="../../../pt/jamslate/">JamSlate</a><br>© 2026 Digital Slate Database. Todos os direitos reservados.</div>
+<div><a href="../../../pt/gameslate/">GameSlate</a> &nbsp;·&nbsp; <a href="../../../pt/bookslate/">BookSlate</a> &nbsp;·&nbsp; <a href="../../../pt/stringslate/">StringSlate</a> &nbsp;·&nbsp; <a href="../../../pt/jamslate/">JamSlate</a> &nbsp;·&nbsp; <a href="../../../pt/songslate/">SongSlate</a><br>© 2026 Digital Slate Database. Todos os direitos reservados.</div>
 </div></footer>
 </body>
 </html>

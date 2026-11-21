@@ -31,7 +31,7 @@
       <p>JamSlate does not run its own analytics.</p>
       <p>JamSlate offers an optional one-time purchase, "Remove ads". Google Play handles the payment: the developer never receives your payment details, and the app only learns whether the purchase exists on your Google account. If you own it, ads are turned off and the ads SDK is not started.</p>
       <h3>3. Information sent when you search for a song</h3>
-      <p>Song search is optional: nothing is sent unless you use it. When you search, the app sends the text you type, over HTTPS, to <strong>Deezer</strong> (api.deezer.com). To read a song's tempo and genre it asks Deezer for that track, its album and, when a track lists no tempo, other versions by the same artist. To try to find the key, it sends the track's ISRC code to <strong>MusicBrainz</strong> (musicbrainz.org) and the recording identifiers it returns to <strong>AcousticBrainz</strong> (acousticbrainz.org). These requests carry no account, name or advertising ID from JamSlate, but, like any website, each service can see your IP address and handles it under its own privacy policy. JamSlate does not send your choices to the developer, and the band works fully offline.</p>
+      <p>Song search is optional: nothing is sent unless you use it. When you search, the app sends the text you type, over HTTPS, to <strong>MusicBrainz</strong> (musicbrainz.org) to find matching recordings, and the identifiers of those recordings to <strong>AcousticBrainz</strong> (acousticbrainz.org) to read the tempo and key measured from their audio. These requests carry no account, name or advertising ID from JamSlate, but, like any website, each service can see your IP address and handles it under its own privacy policy. JamSlate does not send your choices to the developer, and the band works fully offline.</p>
       <h3>4. Information on your device</h3>
       <p>The band is generated on your phone. Your choices (style, key, tempo, instrument levels) are used only while the app runs. The sound library is copied into the app's private storage the first time it starts, so playing needs no internet. JamSlate does not use your microphone, location or contacts. On Android 13 and later it asks for notification permission only so the music can keep playing, with a Stop button, while the screen is off; if you refuse, playback still works but Android may not show that notification.</p>
       <h3>5. Children</h3>
@@ -46,7 +46,7 @@
 </main>
 <footer><div class="wrap foot">
 <div><strong class="brand">Digital<span>Slate</span> Database</strong><br>Small, useful apps for Android.</div>
-<div><a href="../../gameslate/">GameSlate</a> &nbsp;·&nbsp; <a href="../../bookslate/">BookSlate</a> &nbsp;·&nbsp; <a href="../../stringslate/">StringSlate</a> &nbsp;·&nbsp; <a href="../../jamslate/">JamSlate</a><br>© 2026 Digital Slate Database. All rights reserved.</div>
+<div><a href="../../gameslate/">GameSlate</a> &nbsp;·&nbsp; <a href="../../bookslate/">BookSlate</a> &nbsp;·&nbsp; <a href="../../stringslate/">StringSlate</a> &nbsp;·&nbsp; <a href="../../jamslate/">JamSlate</a> &nbsp;·&nbsp; <a href="../../songslate/">SongSlate</a><br>© 2026 Digital Slate Database. All rights reserved.</div>
 </div></footer>
 </body>
 </html>
